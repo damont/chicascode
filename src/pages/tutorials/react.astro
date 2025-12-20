@@ -1,0 +1,166 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Counter from '../../components/Counter';
+---
+
+<Layout title="React Tutorial - Chicas Code">
+	<main class="tutorial-page">
+		<div class="tutorial-header">
+			<a href="/" class="back-link">← Back to Home</a>
+			<h1>React Basics</h1>
+		</div>
+
+		<article class="tutorial-content">
+			<section>
+				<h2>What is React?</h2>
+				<p>
+					React is a popular JavaScript library for building user interfaces.
+					It helps you create reusable components and build interactive applications!
+				</p>
+			</section>
+
+			<section>
+				<h2>Components</h2>
+				<p>
+					In React, everything is a component. Components are like building blocks
+					that you can reuse throughout your app.
+				</p>
+			</section>
+
+			<section>
+				<h2>Interactive Example</h2>
+				<p>Here's a simple React counter component in action:</p>
+				<div class="demo">
+					<Counter client:load />
+				</div>
+			</section>
+
+			<section>
+				<h2>The Code</h2>
+				<p>Here's how the counter component works:</p>
+				<pre><code>import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() => setCount(count + 1)}&gt;
+        Increment
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+			</section>
+
+			<section>
+				<h2>Keep Learning!</h2>
+				<p>
+					React is powerful and fun! As you learn more, you'll be able to create
+					amazing interactive applications. Keep practicing and building projects!
+				</p>
+			</section>
+		</article>
+
+		<div class="tutorial-nav">
+			<a href="/tutorials/javascript" class="prev-btn">← Previous</a>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.tutorial-page {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+
+	.tutorial-header {
+		margin-bottom: 2rem;
+	}
+
+	.back-link {
+		color: var(--primary);
+		text-decoration: none;
+		font-weight: 500;
+		display: inline-block;
+		margin-bottom: 1rem;
+	}
+
+	.back-link:hover {
+		text-decoration: underline;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.tutorial-content {
+		background: white;
+		border-radius: 12px;
+		padding: 2rem;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	}
+
+	section {
+		margin-bottom: 2rem;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+		margin-bottom: 1rem;
+		color: var(--primary);
+	}
+
+	p {
+		line-height: 1.8;
+		margin-bottom: 1rem;
+		font-size: 1.1rem;
+		color: #555;
+	}
+
+	.demo {
+		background: #f9f9f9;
+		border: 2px solid #e0e0e0;
+		border-radius: 8px;
+		padding: 2rem;
+		margin: 1.5rem 0;
+		text-align: center;
+	}
+
+	pre {
+		background: #f4f4f4;
+		padding: 1.5rem;
+		border-radius: 8px;
+		overflow-x: auto;
+		margin: 1rem 0;
+		border-left: 4px solid var(--primary);
+	}
+
+	code {
+		font-family: 'Courier New', monospace;
+		font-size: 0.95rem;
+	}
+
+	.tutorial-nav {
+		margin-top: 3rem;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.prev-btn {
+		background: linear-gradient(45deg, var(--primary), var(--secondary));
+		color: white;
+		padding: 1rem 2rem;
+		border-radius: 8px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: transform 0.2s;
+	}
+
+	.prev-btn:hover {
+		transform: scale(1.05);
+	}
+</style>

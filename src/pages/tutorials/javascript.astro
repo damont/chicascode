@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="JavaScript Tutorial - Chicas Code">
+	<main class="tutorial-page">
+		<div class="tutorial-header">
+			<a href="/" class="back-link">← Back to Home</a>
+			<h1>JavaScript Basics</h1>
+		</div>
+
+		<article class="tutorial-content">
+			<section>
+				<h2>Making Websites Interactive</h2>
+				<p>
+					JavaScript adds interactivity to your websites. With JavaScript, you can
+					respond to user actions, create animations, and much more!
+				</p>
+			</section>
+
+			<section>
+				<h2>Your First JavaScript Code</h2>
+				<p>Let's create a simple button that changes text when clicked:</p>
+				<pre><code>&lt;button onclick="changeText()"&gt;Click Me!&lt;/button&gt;
+&lt;p id="demo"&gt;Hello!&lt;/p&gt;
+
+&lt;script&gt;
+function changeText() {
+  document.getElementById("demo").innerHTML = "You clicked the button!";
+}
+&lt;/script&gt;</code></pre>
+			</section>
+
+			<section>
+				<h2>Variables and Data</h2>
+				<p>Variables store information:</p>
+				<pre><code>let name = "Chicas Code";
+let age = 10;
+let isLearning = true;
+
+console.log("Welcome to " + name);</code></pre>
+			</section>
+
+			<section>
+				<h2>Practice Project</h2>
+				<p>
+					Try creating a simple counter that increases each time you click a button.
+					Use what you've learned about functions and variables!
+				</p>
+			</section>
+		</article>
+
+		<div class="tutorial-nav">
+			<a href="/tutorials/html-css" class="prev-btn">← Previous</a>
+			<a href="/tutorials/react" class="next-btn">Next: React →</a>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.tutorial-page {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+
+	.tutorial-header {
+		margin-bottom: 2rem;
+	}
+
+	.back-link {
+		color: var(--primary);
+		text-decoration: none;
+		font-weight: 500;
+		display: inline-block;
+		margin-bottom: 1rem;
+	}
+
+	.back-link:hover {
+		text-decoration: underline;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.tutorial-content {
+		background: white;
+		border-radius: 12px;
+		padding: 2rem;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	}
+
+	section {
+		margin-bottom: 2rem;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+		margin-bottom: 1rem;
+		color: var(--primary);
+	}
+
+	p {
+		line-height: 1.8;
+		margin-bottom: 1rem;
+		font-size: 1.1rem;
+		color: #555;
+	}
+
+	pre {
+		background: #f4f4f4;
+		padding: 1.5rem;
+		border-radius: 8px;
+		overflow-x: auto;
+		margin: 1rem 0;
+		border-left: 4px solid var(--primary);
+	}
+
+	code {
+		font-family: 'Courier New', monospace;
+		font-size: 0.95rem;
+	}
+
+	.tutorial-nav {
+		margin-top: 3rem;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.prev-btn, .next-btn {
+		background: linear-gradient(45deg, var(--primary), var(--secondary));
+		color: white;
+		padding: 1rem 2rem;
+		border-radius: 8px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: transform 0.2s;
+	}
+
+	.prev-btn:hover, .next-btn:hover {
+		transform: scale(1.05);
+	}
+</style>

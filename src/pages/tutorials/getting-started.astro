@@ -1,0 +1,151 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Getting Started - Chicas Code">
+	<main class="tutorial-page">
+		<div class="tutorial-header">
+			<a href="/" class="back-link">← Back to Home</a>
+			<h1>Getting Started with Coding</h1>
+		</div>
+
+		<article class="tutorial-content">
+			<section>
+				<h2>Welcome to Your First Tutorial!</h2>
+				<p>
+					Coding is like giving instructions to a computer. Just like following a recipe
+					to bake cookies, we write code to tell the computer what to do.
+				</p>
+			</section>
+
+			<section>
+				<h2>What is a Website?</h2>
+				<p>
+					A website is made up of different parts:
+				</p>
+				<ul>
+					<li><strong>HTML</strong> - The structure (like the walls and floors of a house)</li>
+					<li><strong>CSS</strong> - The styling (like paint, furniture, and decorations)</li>
+					<li><strong>JavaScript</strong> - The interactivity (like doors that open and lights that turn on)</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Your First Code</h2>
+				<p>Let's write some HTML! This creates a simple heading:</p>
+				<pre><code>&lt;h1&gt;Hello, World!&lt;/h1&gt;</code></pre>
+				<p>Copy this code and try it yourself!</p>
+			</section>
+
+			<section>
+				<h2>What's Next?</h2>
+				<p>
+					In the next tutorials, we'll learn more about HTML and CSS to create
+					beautiful web pages. Keep exploring and have fun!
+				</p>
+			</section>
+		</article>
+
+		<div class="tutorial-nav">
+			<a href="/tutorials/html-css" class="next-btn">Next: HTML & CSS →</a>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.tutorial-page {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+
+	.tutorial-header {
+		margin-bottom: 2rem;
+	}
+
+	.back-link {
+		color: var(--primary);
+		text-decoration: none;
+		font-weight: 500;
+		display: inline-block;
+		margin-bottom: 1rem;
+	}
+
+	.back-link:hover {
+		text-decoration: underline;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.tutorial-content {
+		background: white;
+		border-radius: 12px;
+		padding: 2rem;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	}
+
+	section {
+		margin-bottom: 2rem;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+		margin-bottom: 1rem;
+		color: var(--primary);
+	}
+
+	p {
+		line-height: 1.8;
+		margin-bottom: 1rem;
+		font-size: 1.1rem;
+		color: #555;
+	}
+
+	ul {
+		margin-left: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	li {
+		margin-bottom: 0.5rem;
+		line-height: 1.6;
+		color: #555;
+	}
+
+	pre {
+		background: #f4f4f4;
+		padding: 1.5rem;
+		border-radius: 8px;
+		overflow-x: auto;
+		margin: 1rem 0;
+		border-left: 4px solid var(--primary);
+	}
+
+	code {
+		font-family: 'Courier New', monospace;
+		font-size: 0.95rem;
+	}
+
+	.tutorial-nav {
+		margin-top: 3rem;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.next-btn {
+		background: linear-gradient(45deg, var(--primary), var(--secondary));
+		color: white;
+		padding: 1rem 2rem;
+		border-radius: 8px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: transform 0.2s;
+	}
+
+	.next-btn:hover {
+		transform: scale(1.05);
+	}
+</style>

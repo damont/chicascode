@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About - Chicas Code">
+	<main class="about-page">
+		<h1>About Chicas Code</h1>
+		<div class="content">
+			<p>
+				Welcome! This is a special website created for my daughters to learn coding
+				in a fun and engaging way.
+			</p>
+			<p>
+				Here you'll find tutorials on web development, from the basics of HTML and CSS
+				to more advanced topics like React and JavaScript.
+			</p>
+			<p>
+				The tutorials are designed to be beginner-friendly and include plenty of
+				examples and projects to practice your skills.
+			</p>
+			<h2>What You'll Learn</h2>
+			<ul>
+				<li>HTML & CSS - Building and styling web pages</li>
+				<li>JavaScript - Making websites interactive</li>
+				<li>React - Creating modern web applications</li>
+				<li>Problem-solving and computational thinking</li>
+			</ul>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.about-page {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 3rem 1rem;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+
+	.content {
+		line-height: 1.8;
+	}
+
+	p {
+		margin-bottom: 1.5rem;
+		font-size: 1.1rem;
+		color: #555;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	li {
+		padding: 0.75rem 0;
+		padding-left: 2rem;
+		position: relative;
+		font-size: 1.1rem;
+		color: #555;
+	}
+
+	li::before {
+		content: "✨";
+		position: absolute;
+		left: 0;
+	}
+</style>

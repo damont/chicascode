@@ -1,0 +1,54 @@
+.counter {
+  font-family: system-ui, sans-serif;
+}
+
+.counter h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.count-display {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff6b9d;
+  margin: 1.5rem 0;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button-group button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: white;
+}
+
+.btn-increment {
+  background: linear-gradient(45deg, #4d9fff, #3b82f6);
+}
+
+.btn-decrement {
+  background: linear-gradient(45deg, #ff6b9d, #ff4d7d);
+}
+
+.btn-reset {
+  background: linear-gradient(45deg, #c06bff, #a855f7);
+}
+
+.button-group button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button-group button:active {
+  transform: translateY(0);
+}

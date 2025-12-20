@@ -1,0 +1,150 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="HTML & CSS Tutorial - Chicas Code">
+	<main class="tutorial-page">
+		<div class="tutorial-header">
+			<a href="/" class="back-link">← Back to Home</a>
+			<h1>HTML & CSS Basics</h1>
+		</div>
+
+		<article class="tutorial-content">
+			<section>
+				<h2>Building Your First Web Page</h2>
+				<p>
+					Let's learn how to create and style a simple web page using HTML and CSS!
+				</p>
+			</section>
+
+			<section>
+				<h2>HTML Structure</h2>
+				<p>Every web page starts with basic HTML structure:</p>
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome!&lt;/h1&gt;
+    &lt;p&gt;This is my first web page.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</section>
+
+			<section>
+				<h2>Adding Style with CSS</h2>
+				<p>CSS makes your page look beautiful:</p>
+				<pre><code>body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #ff6b9d;
+  text-align: center;
+}</code></pre>
+			</section>
+
+			<section>
+				<h2>Try It Yourself!</h2>
+				<p>
+					Create a simple HTML file and add some CSS to style it. Experiment with
+					different colors and fonts!
+				</p>
+			</section>
+		</article>
+
+		<div class="tutorial-nav">
+			<a href="/tutorials/getting-started" class="prev-btn">← Previous</a>
+			<a href="/tutorials/javascript" class="next-btn">Next: JavaScript →</a>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.tutorial-page {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+
+	.tutorial-header {
+		margin-bottom: 2rem;
+	}
+
+	.back-link {
+		color: var(--primary);
+		text-decoration: none;
+		font-weight: 500;
+		display: inline-block;
+		margin-bottom: 1rem;
+	}
+
+	.back-link:hover {
+		text-decoration: underline;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.tutorial-content {
+		background: white;
+		border-radius: 12px;
+		padding: 2rem;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	}
+
+	section {
+		margin-bottom: 2rem;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+		margin-bottom: 1rem;
+		color: var(--primary);
+	}
+
+	p {
+		line-height: 1.8;
+		margin-bottom: 1rem;
+		font-size: 1.1rem;
+		color: #555;
+	}
+
+	pre {
+		background: #f4f4f4;
+		padding: 1.5rem;
+		border-radius: 8px;
+		overflow-x: auto;
+		margin: 1rem 0;
+		border-left: 4px solid var(--primary);
+	}
+
+	code {
+		font-family: 'Courier New', monospace;
+		font-size: 0.95rem;
+	}
+
+	.tutorial-nav {
+		margin-top: 3rem;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.prev-btn, .next-btn {
+		background: linear-gradient(45deg, var(--primary), var(--secondary));
+		color: white;
+		padding: 1rem 2rem;
+		border-radius: 8px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: transform 0.2s;
+	}
+
+	.prev-btn:hover, .next-btn:hover {
+		transform: scale(1.05);
+	}
+</style>
