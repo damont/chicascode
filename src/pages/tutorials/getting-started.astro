@@ -6,48 +6,86 @@ import Layout from '../../layouts/Layout.astro';
 	<main class="tutorial-page">
 		<div class="tutorial-header">
 			<a href="/" class="back-link">← Back to Home</a>
-			<h1>Getting Started with Coding</h1>
+			<h1>Python: Getting Started</h1>
 		</div>
 
 		<article class="tutorial-content">
 			<section>
-				<h2>Welcome to Your First Tutorial!</h2>
+				<h2>Welcome!</h2>
 				<p>
-					Coding is like giving instructions to a computer. Just like following a recipe
-					to bake cookies, we write code to tell the computer what to do.
+					In this tutorial you’ll set up a Python project in VS Code, create a virtual environment
+					using <code>uv</code>, and run a tiny <em>Hello, World</em> program.
 				</p>
 			</section>
 
 			<section>
-				<h2>What is a Website?</h2>
+				<h2>What is Python?</h2>
 				<p>
-					A website is made up of different parts:
+					Python is a programming language that’s great for building all kinds of things—scripts,
+					games, data projects, and web APIs. We’ll start simple and build up.
 				</p>
+			</section>
+
+			<section>
+				<h2>What is a Virtual Environment?</h2>
+				<p>
+					A <strong>virtual environment</strong> (venv) is like a separate “box” for your project’s Python packages.
+					It keeps your project’s dependencies from mixing with other projects on your computer.
+				</p>
+				<p>
+					We’ll use <code>uv</code> to create and use a virtual environment. (In your setup, <code>uv</code> is already installed.)
+				</p>
+			</section>
+
+			<section>
+				<h2>Set up your first Python project</h2>
+				<p>
+					We’ll make a folder for your code, create a virtual environment, then run a program.
+					Open VS Code, then open a terminal (Terminal → New Terminal).
+				</p>
+				<p>In the terminal, run:</p>
+				<pre><code>mkdir -p python-tutorials/hello-python
+cd python-tutorials/hello-python
+
+uv venv
+</code></pre>
+				<p>
+					That creates a <code>.venv</code> folder. VS Code may prompt you to select it as your Python interpreter.
+				</p>
+			</section>
+
+			<section>
+				<h2>Hello, World</h2>
+				<p>Create a file named <code>hello.py</code> with this code:</p>
+				<pre><code>print("Hello, World!")
+</code></pre>
+				<p>Run it with:</p>
+				<pre><code>uv run python hello.py
+</code></pre>
+				<p>
+					If you see <code>Hello, World!</code>, you did it.
+				</p>
+			</section>
+
+			<section>
+				<h2>How running works (quick mental model)</h2>
 				<ul>
-					<li><strong>HTML</strong> - The structure (like the walls and floors of a house)</li>
-					<li><strong>CSS</strong> - The styling (like paint, furniture, and decorations)</li>
-					<li><strong>JavaScript</strong> - The interactivity (like doors that open and lights that turn on)</li>
+					<li><code>python hello.py</code> runs a file.</li>
+					<li><code>uv run ...</code> runs a command using the project’s environment.</li>
+					<li>Later, we’ll add packages (like FastAPI) into the venv for each project.</li>
 				</ul>
-			</section>
-
-			<section>
-				<h2>Your First Code</h2>
-				<p>Let's write some HTML! This creates a simple heading:</p>
-				<pre><code>&lt;h1&gt;Hello, World!&lt;/h1&gt;</code></pre>
-				<p>Copy this code and try it yourself!</p>
 			</section>
 
 			<section>
 				<h2>What's Next?</h2>
 				<p>
-					In the next tutorials, we'll learn more about HTML and CSS to create
-					beautiful web pages. Keep exploring and have fun!
+					Next you’ll build your first web API using Python and FastAPI.
 				</p>
 			</section>
 		</article>
 
 		<div class="tutorial-nav">
-			<a href="/tutorials/html-css" class="next-btn">Next: HTML & CSS →</a>
+			<a href="/tutorials/html-css" class="next-btn">Next: APIs with FastAPI →</a>
 		</div>
 	</main>
 </Layout>

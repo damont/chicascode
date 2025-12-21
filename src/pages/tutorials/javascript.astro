@@ -2,57 +2,100 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="JavaScript Tutorial - Chicas Code">
+<Layout title="Store API + Database - Chicas Code">
 	<main class="tutorial-page">
 		<div class="tutorial-header">
 			<a href="/" class="back-link">← Back to Home</a>
-			<h1>JavaScript Basics</h1>
+			<h1>Store API + Local Database</h1>
 		</div>
 
 		<article class="tutorial-content">
 			<section>
-				<h2>Making Websites Interactive</h2>
+				<h2>Storing Data</h2>
 				<p>
-					JavaScript adds interactivity to your websites. With JavaScript, you can
-					respond to user actions, create animations, and much more!
+					So far your API forgets everything when you restart it. Let's use a <strong>local NoSQL database</strong>
+					to store products for a simple shop.
+				</p>
+				<p>
+					We'll use <strong>TinyDB</strong>—a tiny, file-based JSON database perfect for learning.
 				</p>
 			</section>
 
 			<section>
-				<h2>Your First JavaScript Code</h2>
-				<p>Let's create a simple button that changes text when clicked:</p>
-				<pre><code>&lt;button onclick="changeText()"&gt;Click Me!&lt;/button&gt;
-&lt;p id="demo"&gt;Hello!&lt;/p&gt;
+				<h2>Set up the project</h2>
+				<p>Create a new folder and install dependencies:</p>
+				<pre><code>mkdir -p python-tutorials/store-api
+cd python-tutorials/store-api
 
-&lt;script&gt;
-function changeText() {
-  document.getElementById("demo").innerHTML = "You clicked the button!";
-}
-&lt;/script&gt;</code></pre>
+uv venv
+uv pip install fastapi uvicorn tinydb
+</code></pre>
 			</section>
 
 			<section>
-				<h2>Variables and Data</h2>
-				<p>Variables store information:</p>
-				<pre><code>let name = "Chicas Code";
-let age = 10;
-let isLearning = true;
+				<h2>Build the Store API</h2>
+				<p>Create <code>main.py</code>:</p>
+				<pre><code set:html={`from fastapi import FastAPI, HTTPException
+from tinydb import TinyDB, Query
+from pydantic import BaseModel
 
-console.log("Welcome to " + name);</code></pre>
+app = FastAPI()
+db = TinyDB("store.json")
+products_table = db.table("products")
+
+class Product(BaseModel):
+    name: str
+    price: float
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Store API"}
+
+@app.get("/products")
+def get_products():
+    return products_table.all()
+
+@app.post("/products")
+def add_product(product: Product):
+    product_id = products_table.insert(product.dict())
+    return {"id": product_id, **product.dict()}
+
+@app.get("/products/{product_id}")
+def get_product(product_id: int):
+    product = products_table.get(doc_id=product_id)
+    if not product:
+        raise HTTPException(status_code=404, detail="Product not found")
+    return {"id": product_id, **product}`} /></pre>
 			</section>
 
 			<section>
-				<h2>Practice Project</h2>
+				<h2>Run and Test</h2>
+				<p>Start the server:</p>
+				<pre><code>uv run uvicorn main:app --reload
+</code></pre>
+				<p>Visit <a href="http://127.0.0.1:8000/docs" target="_blank">http://127.0.0.1:8000/docs</a> to:</p>
+				<ul>
+					<li>Add products with <code>POST /products</code> (name and price)</li>
+					<li>View all products with <code>GET /products</code></li>
+					<li>Get a single product with <code>GET /products/1</code></li>
+				</ul>
 				<p>
-					Try creating a simple counter that increases each time you click a button.
-					Use what you've learned about functions and variables!
+					Your data is saved in <code>store.json</code> — it persists even when you restart!
+				</p>
+			</section>
+
+			<section>
+				<h2>What's Next?</h2>
+				<p>
+					In the final tutorial, you'll build a simple web UI that talks to this API so users can search
+					and "buy" products.
 				</p>
 			</section>
 		</article>
 
 		<div class="tutorial-nav">
 			<a href="/tutorials/html-css" class="prev-btn">← Previous</a>
-			<a href="/tutorials/react" class="next-btn">Next: React →</a>
+			<a href="/tutorials/react" class="next-btn">Next: Storefront UI →</a>
 		</div>
 	</main>
 </Layout>

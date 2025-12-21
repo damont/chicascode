@@ -1,0 +1,13 @@
+# Virtual environments
+.venv/
+venv/
+__pycache__/
+
+# Database files
+*.json
+
+# Python cache
+*.pyc
+*.pyo
+*.pyd
+.Python

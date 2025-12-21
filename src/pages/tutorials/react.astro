@@ -1,64 +1,114 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Counter from '../../components/Counter';
 ---
 
-<Layout title="React Tutorial - Chicas Code">
+<Layout title="Storefront UI - Chicas Code">
 	<main class="tutorial-page">
 		<div class="tutorial-header">
 			<a href="/" class="back-link">← Back to Home</a>
-			<h1>React Basics</h1>
+			<h1>Storefront UI</h1>
 		</div>
 
 		<article class="tutorial-content">
 			<section>
-				<h2>What is React?</h2>
+				<h2>Adding a User Interface</h2>
 				<p>
-					React is a popular JavaScript library for building user interfaces.
-					It helps you create reusable components and build interactive applications!
+					You've built an API that stores products. Now let's create a simple HTML + JavaScript UI
+					so people can browse and "buy" items.
 				</p>
 			</section>
 
 			<section>
-				<h2>Components</h2>
+				<h2>Set up the UI</h2>
+				<p>In your <code>store-api</code> folder, create a file <code>index.html</code>:</p>
+				<pre><code set:html={`&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Store&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: Arial; max-width: 800px; margin: 40px auto; padding: 20px; }
+    .product { border: 1px solid #ccc; padding: 15px; margin: 10px 0; border-radius: 8px; }
+    button { background: #ff6b9d; color: white; border: none; padding: 8px 16px; 
+             border-radius: 5px; cursor: pointer; }
+    button:hover { background: #c06bff; }
+    input { padding: 8px; width: 200px; margin-right: 10px; border: 1px solid #ccc; border-radius: 4px; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;🛒 My Store&lt;/h1&gt;
+  &lt;input id="search" type="text" placeholder="Search products..."&gt;
+  &lt;button onclick="loadProducts()"&gt;Search&lt;/button&gt;
+  &lt;div id="products"&gt;&lt;/div&gt;
+
+  &lt;script&gt;
+    async function loadProducts() {
+      const search = document.getElementById('search').value;
+      const res = await fetch('http://127.0.0.1:8000/products');
+      const products = await res.json();
+      
+      const filtered = products.filter(p => 
+        p.name.toLowerCase().includes(search.toLowerCase())
+      );
+      
+      const container = document.getElementById('products');
+      container.innerHTML = filtered.map(p => \`
+        &lt;div class="product"&gt;
+          &lt;h3&gt;\${p.name}&lt;/h3&gt;
+          &lt;p&gt;Price: $\${p.price}&lt;/p&gt;
+          &lt;button onclick="buyProduct('\${p.name}')"&gt;Buy&lt;/button&gt;
+        &lt;/div&gt;
+      \`).join('');
+    }
+
+    function buyProduct(name) {
+      alert(\\\`You bought: \\\${name}!\\\`);
+    }
+
+    loadProducts();
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;`} /></pre>
+			</section>
+
+			<section>
+				<h2>Enable CORS</h2>
+				<p>Your browser won't let the HTML page talk to the API without CORS. Update <code>main.py</code>:</p>
+				<pre><code set:html={`from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from tinydb import TinyDB, Query
+from pydantic import BaseModel
+
+app = FastAPI()
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# ... rest of your code`} /></pre>
+				<p>Restart the server with <code>uv run uvicorn main:app --reload</code>.</p>
+			</section>
+
+			<section>
+				<h2>Try It Out</h2>
 				<p>
-					In React, everything is a component. Components are like building blocks
-					that you can reuse throughout your app.
+					Open <code>index.html</code> in your browser. You'll see all your products!
+					Use the search box to filter, and click "Buy" to simulate a purchase.
 				</p>
 			</section>
 
 			<section>
-				<h2>Interactive Example</h2>
-				<p>Here's a simple React counter component in action:</p>
-				<div class="demo">
-					<Counter client:load />
-				</div>
-			</section>
-
-			<section>
-				<h2>The Code</h2>
-				<p>Here's how the counter component works:</p>
-				<pre><code>import { useState } from 'react';
-
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  return (
-    &lt;div&gt;
-      &lt;p&gt;Count: {count}&lt;/p&gt;
-      &lt;button onClick={() => setCount(count + 1)}&gt;
-        Increment
-      &lt;/button&gt;
-    &lt;/div&gt;
-  );
-}</code></pre>
-			</section>
-
-			<section>
-				<h2>Keep Learning!</h2>
+				<h2>Congratulations!</h2>
 				<p>
-					React is powerful and fun! As you learn more, you'll be able to create
-					amazing interactive applications. Keep practicing and building projects!
+					You've built a complete stack—Python backend API with a database, and a simple frontend UI.
+					From here, you can add features like user accounts, real payment processing, image uploads, and more.
+				</p>
+				<p>
+					Keep coding and building amazing things! 🎉
 				</p>
 			</section>
 		</article>

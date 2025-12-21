@@ -1,6 +1,6 @@
 # Chicas Code 👩‍💻
 
-A beautiful tutorial website for learning web development, built with Astro and React.
+A tutorial website for learning Python, APIs, and web development, built with Astro.
 
 ## 🚀 Quick Start
 
@@ -39,7 +39,7 @@ chicascode/
 ├── public/              # Static assets (images, favicon)
 ├── src/
 │   ├── components/      # Reusable components
-│   │   ├── Counter.tsx  # React counter component
+│   │   ├── Counter.tsx  # React counter component (legacy)
 │   │   ├── Counter.css
 │   │   └── TutorialCard.astro
 │   ├── layouts/         # Page layouts
@@ -47,7 +47,11 @@ chicascode/
 │   └── pages/           # File-based routing
 │       ├── index.astro  # Home page
 │       ├── about.astro
-│       └── tutorials/   # Tutorial pages
+│       └── tutorials/   # Tutorial pages (Python track)
+├── python-tutorials/    # Runnable Python example code
+│   ├── hello-python/    # Tutorial 1: Hello World
+│   ├── fastapi-hello/   # Tutorial 2: FastAPI basics
+│   └── store-api/       # Tutorials 3 & 4: Store API + UI
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml   # Cloudflare deployment workflow
@@ -133,6 +137,17 @@ projectName: chicascode  # Change this to match your Cloudflare Pages project na
    - Deploy to Cloudflare Pages
    - Your site will be live at: `https://chicascode.pages.dev`
 
+## 🐍 Python Tutorials
+
+The `python-tutorials/` folder contains complete, runnable code for each tutorial:
+
+1. **Hello Python** - Virtual environments and your first program
+2. **FastAPI Hello** - Build a simple API that greets you by name
+3. **Store API + Database** - Add TinyDB and create a product store
+4. **Storefront UI** - Build a simple HTML interface for your store
+
+Each tutorial has its own README with setup and run instructions.
+
 ## 🎨 Customization
 
 ### Update Site Information
@@ -140,27 +155,22 @@ projectName: chicascode  # Change this to match your Cloudflare Pages project na
 - Customize colors in `src/layouts/Layout.astro` (CSS variables)
 - Add more tutorials in `src/pages/tutorials/`
 
-### Adding React Components
-This project is already configured for React! Just create `.tsx` files in `src/components/` and use them in your Astro pages with the `client:load` directive.
-
-## 🌐 Working with Other React Projects
-
-Since you'll have other React projects, here's how to manage them:
-
-### Option 1: Separate Projects (Recommended)
-Keep each React project in its own folder with its own `package.json`. This is cleaner and prevents dependency conflicts.
-
-### Option 2: Add to This Project
-You can add React components directly to `src/components/` and create pages that use them. Astro plays nicely with React!
-
 ## 📝 Environment Variables
 
-For local development, create a `.env` file if needed (already in `.gitignore`):
-```
-# Add any environment variables here
-```
+## 📝 Python Setup
 
-## 🆘 Troubleshooting
+### Prerequisites for Tutorials
+- Python 3.10+ (already installed on your system)
+- `uv` package manager (already installed)
+- VS Code with Python extension
+
+### Running the Examples
+```bash
+cd python-tutorials/<tutorial-folder>
+uv venv
+uv pip install <dependencies>
+uv run python <script>.py  # or uvicorn for APIs
+```🆘 Troubleshooting
 
 ### Build Fails
 - Make sure you have Node.js 18+ installed: `node --version`

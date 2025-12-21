@@ -2,62 +2,91 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="HTML & CSS Tutorial - Chicas Code">
+<Layout title="FastAPI Tutorial - Chicas Code">
 	<main class="tutorial-page">
 		<div class="tutorial-header">
 			<a href="/" class="back-link">← Back to Home</a>
-			<h1>HTML & CSS Basics</h1>
+			<h1>APIs with FastAPI</h1>
 		</div>
 
 		<article class="tutorial-content">
 			<section>
-				<h2>Building Your First Web Page</h2>
+				<h2>What is an API?</h2>
 				<p>
-					Let's learn how to create and style a simple web page using HTML and CSS!
+					An <strong>API</strong> (Application Programming Interface) is like a waiter at a restaurant—it takes
+					your order (request), tells the kitchen (server) what you want, and brings you back food (response).
+				</p>
+				<p>
+					With FastAPI, you can build a web API in Python that other programs (or websites) can talk to.
 				</p>
 			</section>
 
 			<section>
-				<h2>HTML Structure</h2>
-				<p>Every web page starts with basic HTML structure:</p>
-				<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;My First Page&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Welcome!&lt;/h1&gt;
-    &lt;p&gt;This is my first web page.&lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-			</section>
+				<h2>Set up a FastAPI project</h2>
+				<p>In your terminal, create a new folder and install FastAPI:</p>
+				<pre><code>mkdir -p python-tutorials/fastapi-hello
+cd python-tutorials/fastapi-hello
 
-			<section>
-				<h2>Adding Style with CSS</h2>
-				<p>CSS makes your page look beautiful:</p>
-				<pre><code>body {
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
-}
-
-h1 {
-  color: #ff6b9d;
-  text-align: center;
-}</code></pre>
-			</section>
-
-			<section>
-				<h2>Try It Yourself!</h2>
+uv venv
+uv pip install fastapi uvicorn
+</code></pre>
 				<p>
-					Create a simple HTML file and add some CSS to style it. Experiment with
-					different colors and fonts!
+					<code>fastapi</code> is the framework, and <code>uvicorn</code> runs the server.
+				</p>
+			</section>
+
+			<section>
+				<h2>Your First API</h2>
+				<p>Create a file <code>main.py</code>:</p>
+				<pre><code set:html={`from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello, World!"}
+
+@app.get("/hello/{name}")
+def greet(name: str):
+    return {"message": f"Hello, {name}!"}`} /></pre>
+				<p>This creates two endpoints:</p>
+				<ul>
+					<li><code>/</code> — says "Hello, World!"</li>
+					<li><code>/hello/YourName</code> — greets you by name</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Run the API</h2>
+				<p>Start the server:</p>
+				<pre><code>uv run uvicorn main:app --reload
+</code></pre>
+				<p>
+					Open <a href="http://127.0.0.1:8000" target="_blank">http://127.0.0.1:8000</a> in your browser—you'll see the JSON response.
+				</p>
+				<p>
+					Try <a href="http://127.0.0.1:8000/hello/Alice" target="_blank">http://127.0.0.1:8000/hello/Alice</a> to see a personalized greeting.
+				</p>
+			</section>
+
+			<section>
+				<h2>Explore the docs</h2>
+				<p>
+					FastAPI auto-generates documentation. Visit <a href="http://127.0.0.1:8000/docs" target="_blank">http://127.0.0.1:8000/docs</a> to test your API interactively.
+				</p>
+			</section>
+
+			<section>
+				<h2>What's Next?</h2>
+				<p>
+					In the next tutorial, you'll add a local NoSQL database and build an API for a simple store.
 				</p>
 			</section>
 		</article>
 
 		<div class="tutorial-nav">
 			<a href="/tutorials/getting-started" class="prev-btn">← Previous</a>
-			<a href="/tutorials/javascript" class="next-btn">Next: JavaScript →</a>
+			<a href="/tutorials/javascript" class="next-btn">Next: Store API + Database →</a>
 		</div>
 	</main>
 </Layout>

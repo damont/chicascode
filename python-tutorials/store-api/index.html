@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    .search-box {
+      text-align: center;
+      margin: 20px 0;
+    }
+    input {
+      padding: 10px;
+      width: 250px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    button {
+      background: #ff6b9d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #c06bff;
+    }
+    .product {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .product h3 {
+      margin: 0 0 10px 0;
+      color: #333;
+    }
+    .product p {
+      margin: 5px 0;
+      color: #666;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff6b9d;
+    }
+  </style>
+</head>
+<body>
+  <h1>🛒 My Store</h1>
+  
+  <div class="search-box">
+    <input id="search" type="text" placeholder="Search products...">
+    <button onclick="loadProducts()">Search</button>
+  </div>
+  
+  <div id="products"></div>
+
+  <script>
+    async function loadProducts() {
+      try {
+        const search = document.getElementById('search').value;
+        const res = await fetch('http://127.0.0.1:8000/products');
+        const products = await res.json();
+        
+        const filtered = products.filter(p => 
+          p.name.toLowerCase().includes(search.toLowerCase())
+        );
+        
+        const container = document.getElementById('products');
+        
+        if (filtered.length === 0) {
+          container.innerHTML = '<p style="text-align:center; color:#999;">No products found. Add some using the API!</p>';
+          return;
+        }
+        
+        container.innerHTML = filtered.map(p => `
+          <div class="product">
+            <h3>${p.name}</h3>
+            <p class="price">$${p.price.toFixed(2)}</p>
+            <button onclick="buyProduct('${p.name}')">Buy Now</button>
+          </div>
+        `).join('');
+      } catch (error) {
+        document.getElementById('products').innerHTML = 
+          '<p style="text-align:center; color:red;">Error loading products. Make sure the API is running!</p>';
+      }
+    }
+
+    function buyProduct(name) {
+      alert(`You bought: ${name}!`);
+    }
+
+    // Load products on page load
+    loadProducts();
+  </script>
+</body>
+</html>
