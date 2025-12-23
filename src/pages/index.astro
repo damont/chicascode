@@ -6,9 +6,10 @@ import TutorialCard from '../components/TutorialCard.astro';
 <Layout title="Chicas Code - Learn to Code">
 	<main>
 		<div class="hero">
-			<h1>🎨 Welcome to <span class="text-gradient">Chicas Code</span></h1>
+			<img src="/rabidflamingos.jpeg" alt="Flamingo" class="hero-image" />
+			<h1>Welcome to <span class="text-gradient">Chicas Code</span></h1>
 			<p class="subtitle">
-				Fun coding tutorials for my amazing daughters!
+				Fun coding tutorials for the rabid flamingos!
 			</p>
 		</div>
 
@@ -45,6 +46,15 @@ import TutorialCard from '../components/TutorialCard.astro';
 		margin: auto;
 		padding: 1rem;
 		max-width: 1200px;
+	}
+
+	.hero-image {
+		width: 200px;
+		height: 200px;
+		object-fit: cover;
+		border-radius: 50%;
+		margin-bottom: 1rem;
+		border: 4px solid var(--primary);
 	}
 
 	.hero {
