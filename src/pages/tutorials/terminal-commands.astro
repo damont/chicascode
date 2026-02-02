@@ -1,0 +1,695 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Terminal & VS Code Commands - Chicas Code">
+	<main class="tutorial-page">
+		<div class="tutorial-header">
+			<a href="/" class="back-link">← Back to Home</a>
+			<h1>🖥️ Terminal & VS Code Commands</h1>
+			<p class="intro">
+				Your cheat sheet for working with the terminal and VS Code on Ubuntu.
+				Keep this page bookmarked — you'll use these commands every time you code!
+			</p>
+		</div>
+
+		<article class="tutorial-content">
+
+			<!-- SECTION 1: Opening the Terminal -->
+			<section>
+				<h2>1. Open the Terminal</h2>
+				<p>
+					The terminal is where you type commands to talk to your computer.
+					It might look scary at first, but it's actually just a text-based way to do
+					things you'd normally do by clicking around.
+				</p>
+				<div class="shortcut-box">
+					<span class="key">Ctrl</span> + <span class="key">Alt</span> + <span class="key">T</span>
+				</div>
+				<p>
+					Press those three keys at the same time and a terminal window will pop up!
+				</p>
+				<div class="terminal-window">
+					<div class="terminal-header">
+						<span class="dot red"></span>
+						<span class="dot yellow"></span>
+						<span class="dot green"></span>
+						<span class="terminal-title">Terminal</span>
+					</div>
+					<div class="terminal-body">
+						<p><span class="prompt">chica@ubuntu:~$</span> <span class="cursor">▊</span></p>
+					</div>
+				</div>
+				<p class="tip">
+					💡 <strong>Tip:</strong> The <code>~</code> means you're in your <strong>home folder</strong>. 
+					That's your starting point every time you open a new terminal.
+				</p>
+			</section>
+
+			<!-- SECTION 2: ls -->
+			<section>
+				<h2>2. See What's Here: <code>ls</code></h2>
+				<p>
+					Before you go anywhere, you probably want to see what files and folders 
+					are in your current location. That's what <code>ls</code> does — it <strong>lists</strong> everything.
+				</p>
+				<div class="terminal-window">
+					<div class="terminal-header">
+						<span class="dot red"></span>
+						<span class="dot yellow"></span>
+						<span class="dot green"></span>
+						<span class="terminal-title">Terminal</span>
+					</div>
+					<div class="terminal-body">
+						<p><span class="prompt">chica@ubuntu:~$</span> ls</p>
+						<p class="output"><span class="folder">Desktop</span>    <span class="folder">Documents</span>  <span class="folder">Downloads</span>  <span class="folder">Music</span></p>
+						<p class="output"><span class="folder">Pictures</span>   <span class="folder">python-tutorials</span>  <span class="folder">Videos</span></p>
+					</div>
+				</div>
+				<p>
+					Folders show up in the list. Now you can see where to go!
+				</p>
+				<div class="info-box">
+					<strong>🔍 What does <code>ls</code> stand for?</strong>
+					<p>"list" — it lists the contents of the current directory (folder).</p>
+				</div>
+			</section>
+
+			<!-- SECTION 3: cd -->
+			<section>
+				<h2>3. Move Around: <code>cd</code></h2>
+				<p>
+					Now that you can see your folders, you need to <strong>move into</strong> one.
+					<code>cd</code> stands for <strong>change directory</strong> (directory = folder).
+				</p>
+				<div class="terminal-window">
+					<div class="terminal-header">
+						<span class="dot red"></span>
+						<span class="dot yellow"></span>
+						<span class="dot green"></span>
+						<span class="terminal-title">Terminal</span>
+					</div>
+					<div class="terminal-body">
+						<p><span class="prompt">chica@ubuntu:~$</span> cd python-tutorials</p>
+						<p><span class="prompt">chica@ubuntu:~/python-tutorials$</span> ls</p>
+						<p class="output"><span class="folder">hello-python</span></p>
+						<p><span class="prompt">chica@ubuntu:~/python-tutorials$</span> cd hello-python</p>
+						<p><span class="prompt">chica@ubuntu:~/python-tutorials/hello-python$</span></p>
+					</div>
+				</div>
+				<p>
+					Notice how the path after <code>:</code> changes as you move into folders? 
+					That's how you always know where you are.
+				</p>
+				<div class="info-box">
+					<strong>🔙 Go back one folder:</strong>
+					<pre><code>cd ..</code></pre>
+					<p>The two dots (<code>..</code>) mean "go up one level" — back to the parent folder.</p>
+				</div>
+				<div class="info-box">
+					<strong>🏠 Go home:</strong>
+					<pre><code>cd ~</code></pre>
+					<p>The tilde (<code>~</code>) always takes you back to your home folder, no matter where you are.</p>
+				</div>
+			</section>
+
+			<!-- SECTION 4: Open VS Code -->
+			<section>
+				<h2>4. Open VS Code: <code>code .</code></h2>
+				<p>
+					Once you're in the right project folder, you can open it in VS Code with one command.
+					The dot (<code>.</code>) means "this folder right here."
+				</p>
+				<div class="terminal-window">
+					<div class="terminal-header">
+						<span class="dot red"></span>
+						<span class="dot yellow"></span>
+						<span class="dot green"></span>
+						<span class="terminal-title">Terminal</span>
+					</div>
+					<div class="terminal-body">
+						<p><span class="prompt">chica@ubuntu:~/python-tutorials/hello-python$</span> code .</p>
+					</div>
+				</div>
+				<p>
+					VS Code will open with your project folder loaded in the sidebar. 
+					You'll see all your files ready to edit!
+				</p>
+
+				<div class="vscode-window">
+					<div class="vscode-header">
+						<span class="dot red"></span>
+						<span class="dot yellow"></span>
+						<span class="dot green"></span>
+						<span class="vscode-title">VS Code — hello-python</span>
+					</div>
+					<div class="vscode-body">
+						<div class="vscode-sidebar">
+							<div class="sidebar-header">EXPLORER</div>
+							<div class="sidebar-folder">📂 hello-python</div>
+							<div class="sidebar-file active">📄 hello.py</div>
+							<div class="sidebar-folder">📁 .venv</div>
+						</div>
+						<div class="vscode-editor">
+							<div class="line"><span class="line-num">1</span> <span class="py-func">print</span>(<span class="py-string">"Hello, World!"</span>)</div>
+							<div class="line"><span class="line-num">2</span></div>
+						</div>
+					</div>
+				</div>
+
+				<p class="tip">
+					💡 <strong>Tip:</strong> You can also open the terminal <em>inside</em> VS Code!
+					Go to <strong>Terminal → New Terminal</strong> in the menu, or press 
+					<span class="key-inline">Ctrl</span> + <span class="key-inline">`</span> (the backtick key, above Tab).
+				</p>
+			</section>
+
+			<!-- SECTION 5: Activate Python Environment -->
+			<section>
+				<h2>5. Activate Your Python Environment</h2>
+				<p>
+					Remember virtual environments from the Getting Started tutorial? Before running 
+					Python code, you should activate your project's environment so it uses the right packages.
+				</p>
+				<div class="terminal-window">
+					<div class="terminal-header">
+						<span class="dot red"></span>
+						<span class="dot yellow"></span>
+						<span class="dot green"></span>
+						<span class="terminal-title">Terminal</span>
+					</div>
+					<div class="terminal-body">
+						<p><span class="prompt">chica@ubuntu:~/python-tutorials/hello-python$</span> source .venv/bin/activate</p>
+						<p><span class="prompt-venv">(.venv) chica@ubuntu:~/python-tutorials/hello-python$</span></p>
+					</div>
+				</div>
+				<p>
+					See the <code>(.venv)</code> at the beginning of the line? That means your 
+					virtual environment is active! Now any Python packages you install or use will 
+					be specific to this project.
+				</p>
+				<div class="info-box">
+					<strong>🚪 Deactivate when you're done:</strong>
+					<pre><code>deactivate</code></pre>
+					<p>This turns off the virtual environment and goes back to normal.</p>
+				</div>
+			</section>
+
+			<!-- SECTION 6: Run Python Files -->
+			<section>
+				<h2>6. Run Your Code: <code>python filename.py</code></h2>
+				<p>
+					With your environment activated, running a Python file is simple:
+				</p>
+				<div class="terminal-window">
+					<div class="terminal-header">
+						<span class="dot red"></span>
+						<span class="dot yellow"></span>
+						<span class="dot green"></span>
+						<span class="terminal-title">Terminal</span>
+					</div>
+					<div class="terminal-body">
+						<p><span class="prompt-venv">(.venv) chica@ubuntu:~/python-tutorials/hello-python$</span> python hello.py</p>
+						<p class="output">Hello, World!</p>
+					</div>
+				</div>
+				<p>
+					Just type <code>python</code> followed by the name of your file. That's it!
+				</p>
+				<p class="tip">
+					💡 <strong>Tip:</strong> Make sure you're in the same folder as your file, 
+					or it won't find it. Use <code>ls</code> to check!
+				</p>
+			</section>
+
+			<!-- SECTION 7: Quick Reference -->
+			<section class="reference-section">
+				<h2>📋 Quick Reference Card</h2>
+				<p>Here's everything in one place. Screenshot this or print it out!</p>
+				<div class="reference-card">
+					<div class="ref-row">
+						<div class="ref-command"><span class="key-sm">Ctrl</span>+<span class="key-sm">Alt</span>+<span class="key-sm">T</span></div>
+						<div class="ref-description">Open a new terminal window</div>
+					</div>
+					<div class="ref-row">
+						<div class="ref-command"><code>ls</code></div>
+						<div class="ref-description">List files and folders here</div>
+					</div>
+					<div class="ref-row">
+						<div class="ref-command"><code>cd foldername</code></div>
+						<div class="ref-description">Move into a folder</div>
+					</div>
+					<div class="ref-row">
+						<div class="ref-command"><code>cd ..</code></div>
+						<div class="ref-description">Go back one folder</div>
+					</div>
+					<div class="ref-row">
+						<div class="ref-command"><code>cd ~</code></div>
+						<div class="ref-description">Go to your home folder</div>
+					</div>
+					<div class="ref-row">
+						<div class="ref-command"><code>code .</code></div>
+						<div class="ref-description">Open this folder in VS Code</div>
+					</div>
+					<div class="ref-row">
+						<div class="ref-command"><code>source .venv/bin/activate</code></div>
+						<div class="ref-description">Activate Python environment</div>
+					</div>
+					<div class="ref-row">
+						<div class="ref-command"><code>deactivate</code></div>
+						<div class="ref-description">Turn off Python environment</div>
+					</div>
+					<div class="ref-row">
+						<div class="ref-command"><code>python filename.py</code></div>
+						<div class="ref-description">Run a Python file</div>
+					</div>
+					<div class="ref-row">
+						<div class="ref-command"><code>clear</code></div>
+						<div class="ref-description">Clear the terminal screen</div>
+					</div>
+					<div class="ref-row">
+						<div class="ref-command"><span class="key-sm">Ctrl</span>+<span class="key-sm">`</span></div>
+						<div class="ref-description">Open terminal inside VS Code</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Putting it all together -->
+			<section>
+				<h2>🎯 Putting It All Together</h2>
+				<p>Here's the typical flow every time you sit down to code:</p>
+				<div class="terminal-window">
+					<div class="terminal-header">
+						<span class="dot red"></span>
+						<span class="dot yellow"></span>
+						<span class="dot green"></span>
+						<span class="terminal-title">Terminal</span>
+					</div>
+					<div class="terminal-body">
+						<p class="comment"># 1. Open terminal with Ctrl+Alt+T, then:</p>
+						<p><span class="prompt">chica@ubuntu:~$</span> cd python-tutorials/hello-python</p>
+						<p>&nbsp;</p>
+						<p class="comment"># 2. Open VS Code</p>
+						<p><span class="prompt">chica@ubuntu:~/python-tutorials/hello-python$</span> code .</p>
+						<p>&nbsp;</p>
+						<p class="comment"># 3. Activate your environment</p>
+						<p><span class="prompt">chica@ubuntu:~/python-tutorials/hello-python$</span> source .venv/bin/activate</p>
+						<p>&nbsp;</p>
+						<p class="comment"># 4. Run your code!</p>
+						<p><span class="prompt-venv">(.venv) chica@ubuntu:~/python-tutorials/hello-python$</span> python hello.py</p>
+						<p class="output">Hello, World!</p>
+					</div>
+				</div>
+				<p>
+					That's your whole workflow! Open terminal → go to your project → open VS Code → 
+					activate environment → run code. You've got this! 💪
+				</p>
+			</section>
+
+		</article>
+
+		<div class="tutorial-nav">
+			<a href="/tutorials/getting-started" class="prev-btn">← Previous: Getting Started</a>
+			<a href="/tutorials/html-css" class="next-btn">Next: APIs with FastAPI →</a>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.tutorial-page {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+
+	.tutorial-header {
+		margin-bottom: 2rem;
+	}
+
+	.back-link {
+		color: var(--primary);
+		text-decoration: none;
+		font-weight: 500;
+		display: inline-block;
+		margin-bottom: 1rem;
+	}
+
+	.back-link:hover {
+		text-decoration: underline;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.intro {
+		font-size: 1.2rem;
+		color: #666;
+		line-height: 1.6;
+	}
+
+	.tutorial-content {
+		background: white;
+		border-radius: 12px;
+		padding: 2rem;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	}
+
+	section {
+		margin-bottom: 3rem;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+		margin-bottom: 1rem;
+		color: var(--primary);
+	}
+
+	p {
+		line-height: 1.8;
+		margin-bottom: 1rem;
+		font-size: 1.1rem;
+		color: #555;
+	}
+
+	/* Keyboard shortcut display */
+	.shortcut-box {
+		text-align: center;
+		padding: 1.5rem;
+		margin: 1.5rem 0;
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+
+	.key {
+		display: inline-block;
+		background: linear-gradient(180deg, #f8f8f8, #e8e8e8);
+		border: 2px solid #ccc;
+		border-bottom: 4px solid #aaa;
+		border-radius: 8px;
+		padding: 0.5rem 1rem;
+		font-family: system-ui, sans-serif;
+		font-size: 1.3rem;
+		color: #333;
+		min-width: 50px;
+		text-align: center;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	}
+
+	.key-inline {
+		display: inline-block;
+		background: linear-gradient(180deg, #f8f8f8, #e8e8e8);
+		border: 1px solid #ccc;
+		border-bottom: 3px solid #aaa;
+		border-radius: 5px;
+		padding: 0.15rem 0.5rem;
+		font-family: system-ui, sans-serif;
+		font-size: 0.9rem;
+		color: #333;
+	}
+
+	.key-sm {
+		display: inline-block;
+		background: linear-gradient(180deg, #f8f8f8, #e8e8e8);
+		border: 1px solid #ccc;
+		border-bottom: 2px solid #aaa;
+		border-radius: 4px;
+		padding: 0.1rem 0.4rem;
+		font-family: system-ui, sans-serif;
+		font-size: 0.85rem;
+		color: #333;
+	}
+
+	/* Terminal window mockup */
+	.terminal-window {
+		border-radius: 10px;
+		overflow: hidden;
+		margin: 1.5rem 0;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+		border: 1px solid #333;
+	}
+
+	.terminal-header {
+		background: #3c3c3c;
+		padding: 0.6rem 1rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.dot {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+	}
+
+	.dot.red { background: #ff5f56; }
+	.dot.yellow { background: #ffbd2e; }
+	.dot.green { background: #27c93f; }
+
+	.terminal-title {
+		color: #999;
+		font-size: 0.85rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.terminal-body {
+		background: #1e1e1e;
+		padding: 1.2rem;
+		font-family: 'Courier New', monospace;
+		font-size: 0.95rem;
+		line-height: 1.8;
+		overflow-x: auto;
+	}
+
+	.terminal-body p {
+		color: #e0e0e0;
+		margin: 0;
+		font-size: 0.95rem;
+		white-space: pre;
+	}
+
+	.prompt {
+		color: #27c93f;
+		font-weight: bold;
+	}
+
+	.prompt-venv {
+		color: #ffbd2e;
+		font-weight: bold;
+	}
+
+	.cursor {
+		color: #27c93f;
+		animation: blink 1s step-end infinite;
+	}
+
+	@keyframes blink {
+		50% { opacity: 0; }
+	}
+
+	.output {
+		color: #ccc !important;
+	}
+
+	.folder {
+		color: #4d9fff;
+		font-weight: bold;
+	}
+
+	.comment {
+		color: #666 !important;
+		font-style: italic;
+	}
+
+	/* VS Code mockup */
+	.vscode-window {
+		border-radius: 10px;
+		overflow: hidden;
+		margin: 1.5rem 0;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+		border: 1px solid #333;
+	}
+
+	.vscode-header {
+		background: #323233;
+		padding: 0.6rem 1rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.vscode-title {
+		color: #ccc;
+		font-size: 0.85rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.vscode-body {
+		display: flex;
+		min-height: 120px;
+	}
+
+	.vscode-sidebar {
+		background: #252526;
+		width: 200px;
+		padding: 0.8rem 0;
+		border-right: 1px solid #333;
+	}
+
+	.sidebar-header {
+		color: #888;
+		font-size: 0.75rem;
+		font-weight: bold;
+		letter-spacing: 0.05em;
+		padding: 0.3rem 1rem;
+		margin-bottom: 0.3rem;
+	}
+
+	.sidebar-folder, .sidebar-file {
+		color: #ccc;
+		font-size: 0.85rem;
+		padding: 0.2rem 1rem;
+		font-family: system-ui, sans-serif;
+	}
+
+	.sidebar-file.active {
+		background: #37373d;
+		color: white;
+	}
+
+	.vscode-editor {
+		background: #1e1e1e;
+		flex: 1;
+		padding: 0.8rem 1rem;
+		font-family: 'Courier New', monospace;
+	}
+
+	.line {
+		color: #e0e0e0;
+		font-size: 0.9rem;
+		line-height: 1.8;
+	}
+
+	.line-num {
+		color: #555;
+		margin-right: 1rem;
+		user-select: none;
+	}
+
+	.py-func {
+		color: #dcdcaa;
+	}
+
+	.py-string {
+		color: #ce9178;
+	}
+
+	/* Info and tip boxes */
+	.info-box {
+		background: #f0f4ff;
+		border-left: 4px solid var(--accent);
+		border-radius: 0 8px 8px 0;
+		padding: 1.2rem 1.5rem;
+		margin: 1.5rem 0;
+	}
+
+	.info-box strong {
+		display: block;
+		margin-bottom: 0.5rem;
+		color: #333;
+		font-size: 1.05rem;
+	}
+
+	.info-box p {
+		margin: 0.3rem 0 0 0;
+		color: #555;
+		font-size: 1rem;
+	}
+
+	.info-box pre {
+		margin: 0.5rem 0;
+		background: #e8edf5;
+		border-left: none;
+	}
+
+	.tip {
+		background: #fff9e6;
+		border-left: 4px solid #ffbd2e;
+		border-radius: 0 8px 8px 0;
+		padding: 1rem 1.5rem;
+		margin: 1rem 0;
+	}
+
+	/* Reference card */
+	.reference-section {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 2px dashed #eee;
+	}
+
+	.reference-card {
+		background: linear-gradient(135deg, #fff5f8, #f5f0ff);
+		border: 2px solid var(--primary);
+		border-radius: 12px;
+		padding: 1.5rem;
+		margin-top: 1rem;
+	}
+
+	.ref-row {
+		display: flex;
+		align-items: center;
+		padding: 0.7rem 0.5rem;
+		border-bottom: 1px solid rgba(0,0,0,0.06);
+		gap: 1.5rem;
+	}
+
+	.ref-row:last-child {
+		border-bottom: none;
+	}
+
+	.ref-command {
+		min-width: 240px;
+		font-family: 'Courier New', monospace;
+		font-weight: bold;
+	}
+
+	.ref-description {
+		color: #555;
+		font-size: 1rem;
+	}
+
+	/* Navigation */
+	.tutorial-nav {
+		margin-top: 3rem;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.prev-btn, .next-btn {
+		background: linear-gradient(45deg, var(--primary), var(--secondary));
+		color: white;
+		padding: 1rem 2rem;
+		border-radius: 8px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: transform 0.2s;
+	}
+
+	.prev-btn:hover, .next-btn:hover {
+		transform: scale(1.05);
+	}
+
+	/* Responsive */
+	@media (max-width: 600px) {
+		h1 { font-size: 1.8rem; }
+		.ref-row { flex-direction: column; gap: 0.3rem; }
+		.ref-command { min-width: unset; }
+		.vscode-sidebar { width: 150px; }
+	}
+</style>
